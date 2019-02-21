@@ -1,16 +1,16 @@
 {
-  "name": "hakoniwa",
+  "name": "moeland-hakoniwa",
   "version": "1.0.0",
-  "author": "Sota SASAKI",
-  "homepage": "https://github.com/Sotalbireo/hakoniwa",
+  "author": "MadScientist",
+  "homepage": "https://moeland.moe",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sotalbireo/hakoniwa.git"
+    "url": "git+https://github.com/moeland-moe/hakoniwa"
   },
   "license": "AGPLv3",
   "bugs": {
-    "url": "https://github.com/Sotalbireo/hakoniwa/issues"
+    "email": "info@moeland.moe"
   },
   "main": "index.js",
   "scripts": {
