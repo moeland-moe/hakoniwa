@@ -14,6 +14,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "brows": "browserify public/src/js/ext.js -o public/assets/js/ext.js",
     "compile": "webpack --color",
     "phpfix": "run-os",
     "phpfix:linux:darwin": "bin/composer fix",
@@ -39,7 +40,11 @@
     "updatephp": "run-os",
     "updatephp:linux:darwin": "bin/composer selfupdate && bin/composer update"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/jquery": "^3.3.29",
+    "axios": "^0.18.0",
+    "jquery": "^3.3.1"
+  },
   "devDependencies": {
     "@types/copy-webpack-plugin": "^4.4.2",
     "@types/extract-text-webpack-plugin": "^3.0.3",
@@ -52,6 +57,7 @@
     "apply-loader": "^2.0.0",
     "autoprefixer": "^9.1.5",
     "awesome-typescript-loader": "^5.2.1",
+    "browserify": "^16.2.3",
     "copy-webpack-plugin": "^4.5.2",
     "cpx": "^1.5.0",
     "css-loader": "^0.28.11",
@@ -59,6 +65,8 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "globule": "^1.2.1",
     "html-loader": "^0.5.4",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-dist": "^1.12.1",
     "navigo": "^7.1.2",
     "node-sass": "^4.9.3",
     "npm-run-all": "^4.1.3",
