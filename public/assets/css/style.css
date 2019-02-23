@@ -357,3 +357,17 @@ h2 {
 #NoticeFromAdmin textarea[readonly]:focus {
     outline: 0;
 }
+
+.flex_wrap{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+.flex_wrap table {
+    flex: 0 0 100px;
+
+}
+
+.pop-inhalt {
+    display: none;
+}
