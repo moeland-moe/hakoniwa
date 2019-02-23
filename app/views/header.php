@@ -9,4 +9,5 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="public/assets/css/style.css">
 	<script type="text/javascript" src="public/assets/js/hakojima.js"></script>
+    <script type="text/javascript" src="public/assets/js/ext.js"></script>
 </head>

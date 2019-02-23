@@ -20,8 +20,8 @@ function remainTime(int $nextTime): string
 <?=$this->pageTitle($init->title, 'トップ')?>
 
 <div class="alert alert-danger">
-<p>本サービスは<strong>オープンアルファ版</strong>であるため、以下をご承知おきください。</p>
-<ul>
+    <p>本サービスは<strong>オープンアルファ版</strong>であるため、以下をご承知おきください。[<a href="javascript:void(0);" onclick="openPop('klap-alert')" class="pop-txt">開く</a>]</p>
+<ul id="klap-alert" class="pop-inhalt">
 <li>仕様・デザイン・要求スペック・要求情報等、あらゆるものが予告なしに変更になる恐れがあります。</li>
 <li>プレイデータは必ずしも保全されるものではありません。また、仮にデータが損失した際にも、データ復旧・損失補填などの措置は基本的にとりません。</li>
 <li>不具合をご報告いただいても、必ずしもすぐに修正されるとは限りません。<br>不具合報告は <a href="https://github.com/Sotalbireo/hakoniwa/issues" target="_blank">こちらから (GitHub Issues)。</a></li>
