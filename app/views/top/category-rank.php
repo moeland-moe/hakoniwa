@@ -52,14 +52,13 @@ for ($i = 0, $elements_length = count($elements); $i < $elements_length; $i++) {
 <section id="Ranking">
     <h2>部門トップ</h2>
     <div class="table-responsive">
-        <table class="table table-condensed">
-            <colgroup span=6 style="width:15%"></colgroup>
-            <tbody>
+        <div class="table table-condensed flex_wrap">
+
 <?php for ($i = 0, $cnt = count($elements); $i < $cnt; $i++):?>
 <?php if (($i % 6) === 0):?>
-                <tr>
+
 <?php endif;?>
-                    <td>
+
                         <table class="table table-condensed m-b-0">
                         <thead><tr><th><?=$category_name[$i]?></th></tr></thead>
                         <tbody>
@@ -72,13 +71,13 @@ for ($i = 0, $elements_length = count($elements); $i < $elements_length; $i++) {
 <?php endif;?>
                         </tbody>
                         </table>
-                    </td>
+
 <?php if (($i % 6) === 5):?>
-                </tr>
+
 <?php endif;?>
 <?php endfor;?>
-            </tbody>
-		</table>
+
+		</div>
 	</div>
 </section>
 
