@@ -54,7 +54,7 @@ function remainTime(int $nextTime): string
 <hr>
 
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4" id="login">
 <?php if ($hako->islandNumber > 0):?>
         <h2>自分の島へ</h2>
 

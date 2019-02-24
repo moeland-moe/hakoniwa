@@ -1,4 +1,4 @@
-<section class="IslandView">
+<section class="IslandView" id="reise">
 	<h2>諸島の状況</h2>
 	<p>島の名前を選択すると、<strong>観光</strong>することができます。</p>
 <?php

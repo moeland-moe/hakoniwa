@@ -18,12 +18,12 @@ use \Hakoniwa\InitDefault;
 class Init extends InitDefault
 {
     // サイトのURL
-    public $baseDir = "http://localhost:8000";
+    public $baseDir = "http://localhost/hako";
 
     // ゲームタイトル
-    public $title      = "Re:箱庭諸島";
+    public $title      = "ミューランド諸島";
 
     // 管理人の名前と連絡先
-    public $admin_name  = "管理人";
+    public $admin_name  = "ミューランド国政府";
     public $admin_address  = 'https://twitter.com/twitter';
 }
