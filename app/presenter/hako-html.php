@@ -402,61 +402,7 @@ class HtmlTop extends HTML
                 $ene = round($island['hatuden'] / $enesyouhi * 100);
                 $ene = ($ene < 100) ? '<span style="color:#c7243a;">'.$ene.'%</span>' : $ene.'%';
             }
-            echo <<<END
-	<tr>
-		<th class="TitleCell head">$init->nameRank</th>
-		<th class="TitleCell head">$init->nameSuffix</th>
-		<th class="TitleCell head">得点</th>
-		<th class="TitleCell head">$init->namePopulation</th>
-		<th class="TitleCell head">$init->nameArea</th>
-		<th class="TitleCell head">$init->nameWeather</th>
-		<th class="TitleCell head">$init->nameFunds $lots</th>
-		<th class="TitleCell head">$init->nameFood</th>
-		<th class="TitleCell head">$init->nameUnemploymentRate</th>
-	</tr>
-	<tr>
-		<th class="NumberCell number" rowspan=5>$j</th>
-		<td class="NameCell" rowspan=4>
-			<h3><a href="$this_file?Sight=$id">$name</a>$keep$start</h3>
-            <div>$monster $soccer</div>
-			<div>$prize $viking</div>
-            <div>$zins</div>
-		</td>
-		<td class="InfoCell">$point</td>
-		<td class="InfoCell">$pop</td>
-		<td class="InfoCell">$area</td>
-		<td class="TenkiCell">$sora</td>
-		<td class="InfoCell">$money</td>
-		<td class="InfoCell">$food</td>
-		<td class="InfoCell">$unemployed</td>
-	</tr>
-	<tr>
-		<th class="TitleCell head">$init->nameFarmSize</th>
-		<th class="TitleCell head">$init->nameFactoryScale</th>
-		<th class="TitleCell head">$init->nameCommercialScale</th>
-		<th class="TitleCell head">$init->nameMineScale</th>
-		<th class="TitleCell head">$init->namePowerPlantScale</th>
-		<th class="TitleCell head">$init->namePowerSupplyRate</th>
-		<th class="TitleCell head">$init->nameSatellite</th>
-	</tr>
-	<tr>
-		<td class="InfoCell">$farm</td>
-		<td class="InfoCell">$factory</td>
-		<td class="InfoCell">$commerce</td>
-		<td class="InfoCell">$mountain</td>
-		<td class="InfoCell">$hatuden</td>
-		<td class="InfoCell">$ene</td>
-		<td class="ItemCell">$eiseis</td>
-	</tr>
-	<tr>
-		<th class="TitleCell head">取得アイテム</th>
-		<td class="ItemCell" colspan=6>$items</td>
-	</tr>
-	<tr>
-        <td class="NameCell"><small>前ターン比： $poin / $peop / $okane / $gohan</small></td>
-		<td class="CommentCell" colspan=7><span class="head">{$owner}：</span> $comment</td>
-	</tr>
-END;
+           require VIEWS."/map/island-infolist.php";
         }
         println('</table></div>');
     }
@@ -763,32 +709,7 @@ class HtmlMap extends HTML
 
         if (isset($island['soccer']) && $island['soccer'] > 0) {
             //サッカースコアもレスポンシブ対応
-            echo <<<END
-<div class="table-responsive">
-    <table class="table table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th class="TitleCell head">総合得点</th>
-                <th class="TitleCell head">成績</th>
-                <th class="TitleCell head">攻撃力</th>
-                <th class="TitleCell head">守備力</th>
-                <th class="TitleCell head">得点</th>
-                <th class="TitleCell head">失点</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="InfoCell">{$island['team']}</td>
-                <td class="InfoCell">{$island['shiai']}戦{$island['kachi']}勝{$island['make']}敗{$island['hikiwake']}分</td>
-                <td class="InfoCell">{$island['kougeki']}</td>
-                <td class="InfoCell">{$island['bougyo']}</td>
-                <td class="InfoCell">{$island['tokuten']}</td>
-                <td class="InfoCell">{$island['shitten']}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-END;
+            require_once VIEWS.'/map/island-succer.php';
         }
     }
 
