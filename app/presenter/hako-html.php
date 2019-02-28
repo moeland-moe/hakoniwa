@@ -285,8 +285,8 @@ class HtmlTop extends HTML
             return;
         }
 
-        println('<div class="table-responsive">');
-        println('<table class="table table-bordered table-condensed">');
+        //println('<div class="table-responsive">');
+        //println('<table class="table table-bordered table-condensed">');
 
         for ($i = $start; $i < $sentinel; $i++) {
             $island = $hako->islands[$i];
@@ -295,29 +295,29 @@ class HtmlTop extends HTML
             }
 
             // $island['pop'] = $island['pop'] > 1 ? $island['pop'] : 1;
-            $j             = $island['isBF'] ? '-' : $i + 1;
+            $j[$i]             = $island['isBF'] ? '-' : $i + 1;
             $id            = $island['id'];
-            $pop           = $island['pop'].$init->unitPop;
-            $area          = $island['area'].$init->unitArea;
-            $point         = $island['point'];
+            $pop[$i]           = $island['pop'].$init->unitPop;
+            $area[$i]          = $island['area'].$init->unitArea;
+            $point[$i]         = $island['point'];
             $eisei         = $island['eisei'];
             $zin           = $island['zin'];
             $item          = $island['item'];
-            $money         = Util::aboutMoney((int)$island['money']);
+            $money[$i]         = Util::aboutMoney((int)$island['money']);
             $lot           = $island['lot'];
-            $food          = $island['food'] . $init->unitFood;
-            $unemployed    = ($island['pop'] - ($island['farm'] + $island['factory'] + $island['commerce'] + $island['mountain'] + $island['hatuden']) * 10) / $island['pop'] * 100;
-            $unemployed    = '<span style="color:' .(($unemployed<0)? '#000': '#c7243a'). ';">'. sprintf("%-3d%%", $unemployed). '</span>';
-            $farm          = ($island['farm']     <= 0)? $init->notHave: $island['farm']    *10 . $init->unitPop;
-            $factory       = ($island['factory']  <= 0)? $init->notHave: $island['factory'] *10 . $init->unitPop;
-            $commerce      = ($island['commerce'] <= 0)? $init->notHave: $island['commerce']*10 . $init->unitPop;
-            $mountain      = ($island['mountain'] <= 0)? $init->notHave: $island['mountain']*10 . $init->unitPop;
-            $hatuden       = ($island['hatuden']  <= 0)? $init->notHave: $island['hatuden'] *10 . 'kW';
+            $food[$i]          = $island['food'] . $init->unitFood;
+            $unemployed[$i]    = ($island['pop'] - ($island['farm'] + $island['factory'] + $island['commerce'] + $island['mountain'] + $island['hatuden']) * 10) / $island['pop'] * 100;
+            $unemployed[$i]    = '<span style="color:' .(($unemployed[$i]<0)? '#000': '#c7243a'). ';">'. sprintf("%-3d%%", $unemployed[$i]). '</span>';
+            $farm[$i]          = ($island['farm']     <= 0)? $init->notHave: $island['farm']    *10 . $init->unitPop;
+            $factory[$i]       = ($island['factory']  <= 0)? $init->notHave: $island['factory'] *10 . $init->unitPop;
+            $commerce[$i]      = ($island['commerce'] <= 0)? $init->notHave: $island['commerce']*10 . $init->unitPop;
+            $mountain[$i]      = ($island['mountain'] <= 0)? $init->notHave: $island['mountain']*10 . $init->unitPop;
+            $hatuden[$i]       = ($island['hatuden']  <= 0)? $init->notHave: $island['hatuden'] *10 . 'kW';
             $taiji         = ($island['taiji']    <= 0)? "0".$init->unitMonster: $island['taiji'].$init->unitMonster;
-            $peop          = sprintf('%+d', $island['peop']).$init->unitPop;
-            $okane         = sprintf('%+d', $island['gold']).$init->unitMoney;
-            $gohan         = sprintf('%+d', $island['rice']).$init->unitFood;
-            $poin          = sprintf('%+d', $island['pots']).'pts';
+            $peop[$i]          = sprintf('%+d', $island['peop']).$init->unitPop;
+            $okane[$i]         = sprintf('%+d', $island['gold']).$init->unitMoney;
+            $gohan[$i]         = sprintf('%+d', $island['rice']).$init->unitFood;
+            $poin[$i]          = sprintf('%+d', $island['pots']).'pts';
             $tenki         = $island['tenki'];
             $team          = $island['team'];
             $shiai         = $island['shiai'];
@@ -328,41 +328,41 @@ class HtmlTop extends HTML
             $bougyo        = $island['bougyo'];
             $tokuten       = $island['tokuten'];
             $shitten       = $island['shitten'];
-            $comment       = $island['comment'];
+            $comment[$i]       = $island['comment'];
             $starturn      = $island['starturn'];
-            $keep = '';
+            $keep[$i] = '';
 
-            $monster       = ($island['monster'] > 0)? '<strong class="text-danger">[怪獣'.$island['monster'].'体出現中]</strong>' :'';
+            $monster[$i]       = ($island['monster'] > 0)? '<strong class="text-danger">[怪獣'.$island['monster'].'体出現中]</strong>' :'';
 
             if ($island['keep'] == 1) {
-                $comment = '<span class="attention">この島は管理人預かり中です</span>';
-                $keep = '<span style="font-size:1.4em;color:#4f4dff;font-weight:700;" title="管理人預かり中">❄</span>';
+                $comment[$i] = '<span class="attention">この島は管理人預かり中です</span>';
+                $keep[$i] = '<span style="font-size:1.4em;color:#4f4dff;font-weight:700;" title="管理人預かり中">❄</span>';
             }
 
-            $name = Util::islandName($island, $hako->ally, $hako->idToAllyNumber);
-            $name = $island['absent'] == 0 ? '<span class="islName">'.$name.'</span>' : $init->tagName2_.$name.'('.$island['absent'].')'.$init->_tagName2;
+            $name[$i] = Util::islandName($island, $hako->ally, $hako->idToAllyNumber);
+            $name[$i] = $island['absent'] == 0 ? '<span class="islName">'.$name[$i].'</span>' : $init->tagName2_.$name[$i].'('.$island['absent'].')'.$init->_tagName2;
 
-            $owner = (!empty($island['owner']))? $island['owner']: 'annonymous';
+            $owner[$i] = (!empty($island['owner']))? $island['owner']: 'annonymous';
 
-            $prize = $hako->getPrizeList($island['prize']);
+            $prize[$i] = $hako->getPrizeList($island['prize']);
 
-            // $point = $island['point'];
+            // $point[$i] = $island['point'];
 
             $_ = ['', '晴れ☀', '曇り☁', '雨☂', '雷⛈', '雪☃'];
-            $sora  = "<img src=\"{$init->imgDir}/tenki{$tenki}.gif\" alt=\"{$_[$tenki]}\" title=\"{$_[$tenki]}\"". ' width="19" height="19">';
+            $sora[$i]  = "<img src=\"{$init->imgDir}/tenki{$tenki}.gif\" alt=\"{$_[$tenki]}\" title=\"{$_[$tenki]}\"". ' width="19" height="19">';
 
-            $eiseis = "";
+            $eiseis[$i] = "";
             for ($e = 0; $e < $init->EiseiNumber; $e++) {
                 if (isset($eisei[$e]) && $eisei[$e] > 0) {
                     $_ = $init->EiseiName[$e].' '.$eisei[$e].'%';
-                    $eiseis .= " <img src=\"{$init->imgDir}/eisei{$e}.gif\" alt=\"$_\" title=\"$_\">";
+                    $eiseis[$i] .= " <img src=\"{$init->imgDir}/eisei{$e}.gif\" alt=\"$_\" title=\"$_\">";
                 }
             }
 
-            $zins = "";
+            $zins[$i] = "";
             for ($z = 0; $z < $init->ZinNumber; $z++) {
                 if (isset($zin[$z]) && $zin[$z] > 0) {
-                    $zins .= "<img src=\"{$init->imgDir}/zin{$z}.gif\" alt=\"{$init->ZinName[$z]}\" title=\"{$init->ZinName[$z]}\"> ";
+                    $zins[$i] .= "<img src=\"{$init->imgDir}/zin{$z}.gif\" alt=\"{$init->ZinName[$z]}\" title=\"{$init->ZinName[$z]}\"> ";
                 }
             }
 
@@ -378,33 +378,34 @@ class HtmlTop extends HTML
                 }
             }
 
-            $lots = ($lot > 0)? ' <img src="'.$init->imgDir.'/lot.gif" alt="くじ：'.$lot.'枚" title="'.$lot.'枚">':'';
+            $lots[$i] = ($lot > 0)? ' <img src="'.$init->imgDir.'/lot.gif" alt="くじ：'.$lot.'枚" title="'.$lot.'枚">':'';
 
-            $viking = "";
+            $viking[$i] = "";
             for ($v = $init->shipKind, $c=count($init->shipName); $v < $c; $v++) {
                 if ($island['ship'][$v] > 0) {
-                    $viking .= " <img src=\"{$init->imgDir}/ship{$v}.gif\" width=\"16\" height=\"16\" alt=\"{$init->shipName[$v]}出現中\" title=\"{$init->shipName[$v]}出現中\">";
+                    $viking[$i] .= " <img src=\"{$init->imgDir}/ship{$v}.gif\" width=\"16\" height=\"16\" alt=\"{$init->shipName[$v]}出現中\" title=\"{$init->shipName[$v]}出現中\">";
                 }
             }
 
-            $start = (($hako->islandTurn - $island['starturn']) < $init->noAssist) ? '<sup title="開始ターン：'.$island['starturn'].'">🔰</sup>':'';
+            $startDsp[$i] = (($hako->islandTurn - $island['starturn']) < $init->noAssist) ? '<sup title="開始ターン：'.$island['starturn'].'">🔰</sup>':'';
 
-            $soccer = ($island['soccer'] > 0)?" <span title=\"総合ポイント：{$team}　{$shiai}戦{$kachi}勝{$make}敗{$hikiwake}分　攻撃力：{$kougeki}　守備力：{$bougyo}　得点：{$tokuten}　失点：{$shitten}\">⚽</span>":"";
+            $soccer[$i] = ($island['soccer'] > 0)?" <span title=\"総合ポイント：{$team}　{$shiai}戦{$kachi}勝{$make}敗{$hikiwake}分　攻撃力：{$kougeki}　守備力：{$bougyo}　得点：{$tokuten}　失点：{$shitten}\">⚽</span>":"";
 
             // 電力消費量
             $enesyouhi = round(($island['pop'] / 100) + ($island['factory'] * 2/3) + ($island['commerce'] /3) + ($island['mountain'] /4));
             if ($enesyouhi == 0) {
-                $ene = "電力消費なし";
+                $ene[$i] = "電力消費なし";
             } elseif ($island['hatuden'] == 0) {
-                $ene =  '<span style="color:#c7243a;">0%</span>';
+                $ene[$i] =  '<span style="color:#c7243a;">0%</span>';
             } else {
                 // 電力供給率
-                $ene = round($island['hatuden'] / $enesyouhi * 100);
-                $ene = ($ene < 100) ? '<span style="color:#c7243a;">'.$ene.'%</span>' : $ene.'%';
+                $ene[$i] = round($island['hatuden'] / $enesyouhi * 100);
+                $ene[$i] = ($ene[$i] < 100) ? '<span style="color:#c7243a;">'.$ene[$i].'%</span>' : $ene[$i].'%';
             }
-           require VIEWS."/map/island-infolist.php";
+
         }
-        println('</table></div>');
+        require VIEWS."/map/island-infolist.php";
+        //println('</table></div>');
     }
 
     /**
