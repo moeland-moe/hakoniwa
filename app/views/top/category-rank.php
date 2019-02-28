@@ -51,7 +51,7 @@ for ($i = 0, $elements_length = count($elements); $i < $elements_length; $i++) {
 ?>
 <section id="Ranking">
     <h2>部門トップ</h2>
-    <div class="table-responsive">
+    <div class="">
         <div class="table table-condensed flex_wrap">
 
 <?php for ($i = 0, $cnt = count($elements); $i < $cnt; $i++):?>
@@ -59,7 +59,13 @@ for ($i = 0, $elements_length = count($elements); $i < $elements_length; $i++) {
 
 <?php endif;?>
 
-                        <table class="table table-condensed m-b-0">
+                        <table class="table table-condensed m-b-0
+<?php
+    if($i > 3){
+        echo " mob_hide";
+    }
+?>
+">
                         <thead><tr><th><?=$category_name[$i]?></th></tr></thead>
                         <tbody>
 <?php if ($category_1st[$i]['id'] === -1):?>
