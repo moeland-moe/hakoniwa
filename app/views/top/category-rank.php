@@ -59,24 +59,24 @@ for ($i = 0, $elements_length = count($elements); $i < $elements_length; $i++) {
 
 <?php endif;?>
 
-                        <table class="table table-condensed m-b-0
+                        <div class="table-condensed m-b-0 flex_inner
 <?php
     if($i > 3){
         echo " mob_hide";
     }
 ?>
 ">
-                        <thead><tr><th><?=$category_name[$i]?></th></tr></thead>
-                        <tbody>
+                        <div class="rank_head"><?=$category_name[$i]?></div>
+                        <div>
 <?php if ($category_1st[$i]['id'] === -1):?>
-                            <tr><td class="TenkiCell islName">-</td></tr>
-                            <tr><td class="TenkiCell">-</td></tr>
+                            <div class="TenkiCell islName">-</div>
+                            <div class="TenkiCell rank_bottom">-</div>
 <?php else:?>
-                            <tr><td class="TenkiCell"><a class="islName" href="<?=$this_file?>?Sight=<?=$category_1st[$i]['id']?>"><?=$category_1st[$i]['name']?></a></td></tr>
-                            <tr><td class="TenkiCell"><?=$category_1st[$i]['value'].$category_unit[$i]?></td></tr>
+                            <div class="TenkiCell"><a class="islName" href="<?=$this_file?>?Sight=<?=$category_1st[$i]['id']?>"><?=$category_1st[$i]['name']?></a></div>
+                            <div class="TenkiCell rank_bottom"><?=$category_1st[$i]['value'].$category_unit[$i]?></div>
 <?php endif;?>
-                        </tbody>
-                        </table>
+                        </div>
+                        </div>
 
 <?php if (($i % 6) === 5):?>
 

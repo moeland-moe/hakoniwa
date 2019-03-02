@@ -1,4 +1,12 @@
-<div class="table-responsive">
+<div class="infolist_mob">
+<?php for($idx = $start; $idx < $sentinel; $idx++){ ?>
+    <div class="mob_head"><b>†<?=$j[$idx] ?> </b>位</div>
+    <div class="mod_body isName2_wrap"><a href="<?=$this_file ?>?Sight=<?=$id?>"><?=$name[$idx] ?></a><?=$keep[$idx] ?><?=$startDsp[$idx] ?></div>
+    <div class="mod_body"><b>得点</b>：<?=$point[$idx] ?>　<b><?=$init->namePopulation ?></b>：<?=$pop[$idx] ?>　<b><?=$init->nameFunds ?></b> <?=$lots[$idx] ?>：<?=$money[$idx] ?>　<b><?=$init->nameFood ?></b>：<?=$food[$idx] ?></div>
+
+<?php } ?>
+</div>
+<div class="table-responsive infolist">
     <table class="table table-bordered table-condensed">
 <?php for($idx = $start; $idx < $sentinel; $idx++){ ?>
         <tr>
