@@ -97,6 +97,19 @@ h2 {
 }
 #islandMap, #islandMap table {
     margin: auto;
+    width: 100%;
+}
+
+#islandInfo_mob {
+    top: 70px;
+    width: 90%;
+    position: fixed;
+    border: solid #0f0f10 2px;
+    border-radius: 4px;
+    background-color: rgba(255,0,0,0.3);
+    padding: 3px;
+    z-index: 999;
+    color: rgba(255,255,255,0.9);
 }
 
 /* 観光者通信テーブル */
@@ -267,6 +280,12 @@ h2 {
 .MapCell {
     background-color: #fff;
 }
+.MapWrap {
+    position: absolute;
+    left: 0px;
+    top:50px;
+    width: 100vw;
+}
 
 /* 開発計画入力済み計画 */
 .CommandCell {
@@ -422,6 +441,122 @@ li {
 }
 .rank_bottom {
     border-radius: 0px 0px 5px 5px;
+}
+.plan {
+    bottom: 15px;
+    width: 90%;
+    position: fixed;
+    border: solid #0f0f10 2px;
+    border-radius: 4px;
+    background-color: rgba(255,0,0,0.3);
+    padding: 3px;
+    color: rgba(255,255,255,0.9);
+    z-index: 100;
+}
+.plan select {
+    color: rgba(0,0,0,0.9);
+}
+#plan_confirm {
+    position: fixed;
+    display: none;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90%;
+    border: solid #0f0f10 2px;
+    border-radius: 4px;
+    background-color: rgba(255,0,0,0.3);
+    padding: 3px;
+    color: rgba(255,255,255,0.9);
+    z-index: 200;
+}
+.commands {
+    height: 300px;
+    overflow-y: scroll;
+    text-align: left;
+    margin-left: 5px;
+}
+#target_confirm {
+    position: fixed;
+    display: none;
+    top: 300px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90%;
+    border: solid #0f0f10 2px;
+    border-radius: 4px;
+    background-color: rgba(255,0,0,0.9);
+    padding: 3px;
+    color: rgba(255,255,255,0.9);
+    z-index: 200;
+}
+#target_confirm input{
+    color: rgba(0,0,0,0.9);
+}
+#target_map {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+    border: 1px #008000 solid;
+    background-color: #fff;
+}
+
+#target_ctl {
+    position: fixed;
+    display: none;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90%;
+    border: solid #0f0f10 2px;
+    border-radius: 4px;
+    background-color: rgba(255,0,0,0.3);
+    padding: 3px;
+    color: rgba(255,255,255,0.9);
+    z-index: 1000000;
+}
+.cmd-line {
+    width: 100%;
+    height: 34px;
+    border-bottom: solid #0f0f10 2px;
+}
+.icn_btn {
+    border-radius: 2px;
+    border: solid #9a9aa4 1px;
+    color: #111111;
+    background-image: -webkit-linear-gradient(#eeeeee 0%, #dddddd 100%);
+    background-image: linear-gradient(#eeeeee 0%, #dddddd 100%);
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 40px;
+
+}
+.icn_btn svg {
+    width: 20px;
+    height: 20px;
+
+}
+.del_btn {
+    float: left;
+}
+.edit_btn {
+    float: right;
+}
+
+#angriff_cmd {
+    color: rgba(0,0,0,0.9);
+}
+
+.selectedCmd {
+    background-color: #ff0000;
 }
 
 @media screen and (max-width: 450px) {

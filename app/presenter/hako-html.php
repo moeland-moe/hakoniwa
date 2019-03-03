@@ -553,7 +553,7 @@ class HtmlMap extends HTML
     //---------------------------------------------------
     // 島の情報
     //---------------------------------------------------
-    public function islandInfo($island, $number = 0, $mode = 0): void
+    public function islandInfo($island, $number = 0, $mode = 0, $mobFlg = false): void
     {
         global $init;
         $island['pop'] = max(1, $island['pop']);
@@ -586,6 +586,7 @@ class HtmlMap extends HTML
         $tokuten    = $island['tokuten'];
         $shitten    = $island['shitten'];
         $comment    = $island['comment'];
+        $landname = $island['name'];
 
         if ($island['keep'] == 1) {
             $comment = '<span class="attention">この島は管理人預かり中です。</span>';
@@ -654,7 +655,12 @@ class HtmlMap extends HTML
         }
 
         // 島の情報
-        require_once VIEWS.'/map/island-info.php';
+        if($mobFlg){
+            // モバイルモード
+            require_once VIEWS.'/map/island-info-mob.php';
+        } else {
+            require_once VIEWS.'/map/island-info.php';
+        }
     }
 
     /**
@@ -752,7 +758,9 @@ END;
         $height = $init->islandSize * 32 + 100;
         $defaultTarget = $init->targetIsland == 1 ? $island['id'] : $hako->defaultTarget;
 
-        require_once VIEWS.'/map/development/basic.php';
+        // TODO: テンプレート切り替え
+        //require_once VIEWS.'/map/development/basic.php';
+        require_once VIEWS.'/map/development/mobile.php';
     }
 
     //---------------------------------------------------
@@ -788,8 +796,8 @@ END;
         }
         $value = '<span class="islName">' . $value . '</span>';
         $j = sprintf("%02d：", $number + 1);
-        echo '<a href="#noop" onclick="ns(' . $number . ');return !1;"><span class="number">' . $j . '</span>';
-
+        //echo '<a href="javascript:void(0)" onclick="ns(' . $number . ');" class="prc" id="prc_' . $number . '"><span class="number">' . $j . '</span>';
+        //echo '<div class="icn_btn">'.Octicon::trashcan().'</div><a href="javascript:void(0)" onclick="ns(' . $number . ');" class="prc" id="prc_' . $number . '"><span class="number">' . $j . '</span>';
         switch ($kind) {
             case $init->comMissileSM:
             case $init->comDoNothing:
@@ -910,7 +918,7 @@ END;
 
             case $init->comSoukoM:
                 $flagm = 1;
-                // no break
+            // no break
             case $init->comSoukoF:
                 // 倉庫建設
                 if ($arg == 0) {
@@ -994,7 +1002,10 @@ END;
                 // 座標付き
                 $str = "{$point}で{$comName}";
         }
-        echo "$str</a><br>";
+        require VIEWS . 'map/development/cmd-line.php';
+
+
+        //echo "$str</a><br>";
     }
     //---------------------------------------------------
     // 新しく発見した島
@@ -1027,8 +1038,17 @@ END;
         echo <<<END
 <script>
 function ps(x, y) {
-	window.opener.document.forms.InputPlan.POINTX.options[x].selected = true;
-	window.opener.document.forms.InputPlan.POINTY.options[y].selected = true;
+	if(opener==null){
+		// iframeで開かれた場合
+		window.parent.document.forms.InputPlan.POINTX.options[x].selected = true;
+	    window.parent.document.forms.InputPlan.POINTY.options[y].selected = true;
+	    
+	    window.parent.changeTarget(x, y);
+	} else {
+		// open windowで開かれた場合
+		window.opener.document.forms.InputPlan.POINTX.options[x].selected = true;
+	    window.opener.document.forms.InputPlan.POINTY.options[y].selected = true;
+	}
 	return true;
 }
 </script>

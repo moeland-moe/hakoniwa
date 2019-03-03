@@ -160,7 +160,7 @@ END;
 <h2 class="Turn">ターン$hako->islandTurn</h2>
 <hr>
 <div id="IslandView">
-<h2>諸島の状況</h2>
+<h2>ミューランド諸島の状況</h2>
 <p>島の名前をクリックするとマップエディタが表示されます。</p>
 
 <table class="table table-bordered table-condensed">
