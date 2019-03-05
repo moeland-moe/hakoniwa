@@ -796,151 +796,371 @@ class InitDefault
             $this->comAutoDelete,
         ];
 
+        define('ATTACK_CMD',1);
+        define('BUILD_CMD',2);
+        define('OTHER_CMD',9);
+
         // 計画の名前と値段
+
         $this->comName[$this->comPrepare]      = '整地';
         $this->comCost[$this->comPrepare]      = 5;
+        $this->comType[$this->comPrepare]      = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comPrepare2]     = '地ならし';
         $this->comCost[$this->comPrepare2]     = 100;
+        $this->comType[$this->comPrepare2]     = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comReclaim]      = '埋め立て';
         $this->comCost[$this->comReclaim]      = 150;
+        $this->comType[$this->comReclaim]     = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comDestroy]      = '掘削';
         $this->comCost[$this->comDestroy]      = 200;
+        $this->comType[$this->comDestroy]     = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comDeForest]     = '伐採';
         $this->comCost[$this->comDeForest]     = 0;
+        $this->comType[$this->comDeForest]     = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comPlant]        = '植林';
         $this->comCost[$this->comPlant]        = 50;
+        $this->comType[$this->comPlant]     = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSeaSide]      = '砂浜整備';
         $this->comCost[$this->comSeaSide]      = 100;
+        $this->comType[$this->comSeaSide]     = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comFarm]         = '農場整備';
         $this->comCost[$this->comFarm]         = 20;
+        $this->comType[$this->comFarm]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comSfarm]        = '海底農場整備';
         $this->comCost[$this->comSfarm]        = 500;
+        $this->comType[$this->comSfarm]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comNursery]      = '養殖場設置';
         $this->comCost[$this->comNursery]      = 20;
+        $this->comType[$this->comNursery]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comFactory]      = '工場建設';
         $this->comCost[$this->comFactory]      = 100;
+        $this->comType[$this->comFactory]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comCommerce]     = '商業ビル建設';
         $this->comCost[$this->comCommerce]     = 500;
+        $this->comType[$this->comCommerce]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMountain]     = '採掘場整備';
         $this->comCost[$this->comMountain]     = 300;
+        $this->comType[$this->comMountain]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comHatuden]      = '発電所建設';
         $this->comCost[$this->comHatuden]      = 300;
+        $this->comType[$this->comHatuden]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comPort]         = '港建設';
         $this->comCost[$this->comPort]         = 1500;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comMakeShip]     = '造船';
         $this->comCost[$this->comMakeShip]     = 500;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comSendShip]     = '船派遣';
         $this->comCost[$this->comSendShip]     = 200;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comReturnShip]   = '船帰還';
         $this->comCost[$this->comReturnShip]   = 200;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comShipBack]     = '船破棄';
         $this->comCost[$this->comShipBack]     = 500;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comRail]         = '線路敷設';
         $this->comCost[$this->comRail]         = 100;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comStat]         = '駅建設';
         $this->comCost[$this->comStat]         = 500;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSoccer]       = 'スタジアム建設';
         $this->comCost[$this->comSoccer]       = 1000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comPark]         = '遊園地建設';
         $this->comCost[$this->comPark]         = 700;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comSeaResort]    = '海の家建設';
         $this->comCost[$this->comSeaResort]    = 100;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comFusya]        = '風車建設';
         $this->comCost[$this->comFusya]        = 1000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSyoubou]      = '消防署建設';
         $this->comCost[$this->comSyoubou]      = 600;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSsyoubou]     = '海底消防署建設';
         $this->comCost[$this->comSsyoubou]     = 1000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comBase]         = 'ミサイル基地建設';
         $this->comCost[$this->comBase]         = 300;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comDbase]        = '防衛施設建設';
         $this->comCost[$this->comDbase]        = 800;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comSbase]        = '海底基地建設';
         $this->comCost[$this->comSbase]        = 8000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSdbase]       = '海底防衛施設建設';
         $this->comCost[$this->comSdbase]       = 1000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comSeaCity]      = '海底都市建設';
         $this->comCost[$this->comSeaCity]      = 3000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comProcity]      = '防災都市化';
         $this->comCost[$this->comProcity]      = 3000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comNewtown]      = 'ニュータウン建設';
         $this->comCost[$this->comNewtown]      = 1000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comBigtown]      = '現代都市建設';
         $this->comCost[$this->comBigtown]      = 10000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comMyhome]       = '自宅建設';
         $this->comCost[$this->comMyhome]       = 8000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSoukoM]       = '金庫建設';
         $this->comCost[$this->comSoukoM]       = 1000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSoukoF]       = '食料庫建設';
         $this->comCost[$this->comSoukoF]       = -1000;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comMonument]     = '記念碑建造';
         $this->comCost[$this->comMonument]     = 9999;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comHaribote]     = 'ハリボテ設置';
         $this->comCost[$this->comHaribote]     = 1;
+        $this->comType[$this->comPort]         = BUILD_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comMissileNM]    = 'ミサイル発射';
         $this->comCost[$this->comMissileNM]    = 20;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMissilePP]    = 'PPミサイル発射';
         $this->comCost[$this->comMissilePP]    = 50;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMissileST]    = 'STミサイル発射';
         $this->comCost[$this->comMissileST]    = 100;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMissileBT]    = 'BTミサイル発射';
         $this->comCost[$this->comMissileBT]    = 300;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMissileSP]    = '催眠弾発射';
         $this->comCost[$this->comMissileSP]    = 100;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMissileLD]    = '陸地破壊弾発射';
         $this->comCost[$this->comMissileLD]    = 500;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMissileLU]    = '地形隆起弾発射';
         $this->comCost[$this->comMissileLU]    = 500;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMissileSM]    = 'ミサイル撃ち止め';
         $this->comCost[$this->comMissileSM]    = 0;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comEisei]        = '人工衛星打ち上げ';
         $this->comCost[$this->comEisei]        = 9999;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comEiseimente]   = '人工衛星修復';
         $this->comCost[$this->comEiseimente]   = 5000;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comEiseiAtt]     = '衛星破壊砲発射';
         $this->comCost[$this->comEiseiAtt]     = 30000;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comEiseiLzr]     = '衛星レーザー発射';
         $this->comCost[$this->comEiseiLzr]     = 20000;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comSendMonster]  = '怪獣派遣';
         $this->comCost[$this->comSendMonster]  = 3000;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSendSleeper]  = '怪獣輸送';
         $this->comCost[$this->comSendSleeper]  = 1500;
+        $this->comType[$this->comPort]         = ATTACK_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comOffense]      = '攻撃力強化';
         $this->comCost[$this->comOffense]      = 300;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comDefense]      = '守備力強化';
         $this->comCost[$this->comDefense]      = 300;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comPractice]     = '総合練習';
         $this->comCost[$this->comPractice]     = 500;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comPlaygame]     = '交流試合';
         $this->comCost[$this->comPlaygame]     = 500;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comDoNothing]    = '資金繰り';
         $this->comCost[$this->comDoNothing]    = 0;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comSell]         = '食料輸出';
         $this->comCost[$this->comSell]         = -100;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comSellTree]     = '木材輸出';
         $this->comCost[$this->comSellTree]     = -10;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comMoney]        = '資金援助';
         $this->comCost[$this->comMoney]        = 100;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comFood]         = '食料援助';
         $this->comCost[$this->comFood]         = -100;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comLot]          = '宝くじ購入';
         $this->comCost[$this->comLot]          = 300;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comPropaganda]   = '誘致活動';
         $this->comCost[$this->comPropaganda]   = 1000;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comBoku]         = '僕の引越し';
         $this->comCost[$this->comBoku]         = 1000;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comHikidasi]     = '倉庫引き出し';
         $this->comCost[$this->comHikidasi]     = 100;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = true;
+
         $this->comName[$this->comGiveup]       = '島の放棄';
         $this->comCost[$this->comGiveup]       = 0;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comAutoPrepare]  = '整地自動入力';
         $this->comCost[$this->comAutoPrepare]  = 0;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comAutoPrepare2] = '地ならし自動入力';
         $this->comCost[$this->comAutoPrepare2] = 0;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comAutoReclaim]  = '浅瀬埋め立て自動入力';
         $this->comCost[$this->comAutoReclaim]  = 0;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = false;
+
         $this->comName[$this->comAutoDelete]   = '全計画を白紙撤回';
         $this->comCost[$this->comAutoDelete]   = 0;
+        $this->comType[$this->comPort]         = OTHER_CMD;
+        $this->needAmout = false;
     }
 
     public function __construct()
