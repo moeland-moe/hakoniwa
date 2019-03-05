@@ -924,7 +924,13 @@ END;
             case $init->comBoku:
                 // 回数付き
                 $str = "{$point}で{$comName}";
-                $str .= ($arg != 0) ?: "（{$arg}回）";
+                //$str .= ($arg != 0) ?: "（{$arg}回）";
+                if($arg == 0){
+                    // 0回指定は1回とみなして表示。
+                    $str .= "（1回）";
+                } else {
+                    $str .= "（{$arg}回）";
+                }
 
                 break;
 
