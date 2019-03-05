@@ -24,6 +24,6 @@
             }
         }
 
-        println('<option value="', $kind, '" ', $s, '>', $init->comName[$kind], ' (', $cost, ')</option>');
+        println('<option class=' . $init->comType[$kind] . ' value="', $kind, '" ', $s, '>', $init->comName[$kind], ' (', $cost, ')</option>');
     }
     ?>
