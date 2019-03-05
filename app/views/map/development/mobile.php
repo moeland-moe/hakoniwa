@@ -21,35 +21,7 @@
             ?>
         </div>
         <select name="COMMAND">
-            <?php
-            // コマンド
-            for ($i = 0, $l = count($init->comList);  $i < $l; $i++) {
-                $kind = $init->comList[$i];
-                $cost = $init->comCost[$kind];
-                $s = '';
-
-                if ($cost == 0) {
-                    $cost = '無料';
-                } elseif ($cost < 0) {
-                    $cost = - $cost;
-                    if ($kind == $init->comSellTree) {
-                        $cost .= $init->unitTree;
-                    } else {
-                        $cost .= $init->unitFood;
-                    }
-                } else {
-                    $cost .= $init->unitMoney;
-                }
-
-                if (isset($data['defaultKind'])) {
-                    if ($kind == $data['defaultKind']) {
-                        $s = 'selected';
-                    }
-                }
-
-                println('<option value="', $kind, '" ', $s, '>', $init->comName[$kind], ' (', $cost, ')</option>');
-            }
-            ?>
+            <?php require VIEWS . 'map/development/cmd-select.php'; ?>
         </select><br>
         位置：
         <select name="NUMBER">
@@ -173,35 +145,8 @@
 
     目標座標：(<span id="tx">0</span>,<span id="ty">0</span>)<br>
     <select id="angriff_cmd">
-    <?php
-    // コマンド
-    for ($i = 0, $l = count($init->comList);  $i < $l; $i++) {
-        $kind = $init->comList[$i];
-        $cost = $init->comCost[$kind];
-        $s = '';
-
-        if ($cost == 0) {
-            $cost = '無料';
-        } elseif ($cost < 0) {
-            $cost = - $cost;
-            if ($kind == $init->comSellTree) {
-                $cost .= $init->unitTree;
-            } else {
-                $cost .= $init->unitFood;
-            }
-        } else {
-            $cost .= $init->unitMoney;
-        }
-
-        if (isset($data['defaultKind'])) {
-            if ($kind == $data['defaultKind']) {
-                $s = 'selected';
-            }
-        }
-
-        println('<option value="', $kind, '" ', $s, '>', $init->comName[$kind], ' (', $cost, ')</option>');
-    }
-    ?></select><br>
+        <?php require VIEWS . 'map/development/cmd-select.php'; ?>
+    </select><br>
     　<a href="javascript:void(0)" onclick="angriff('target_map');">攻撃実行！</a> <a href="javascript:void(0)" onclick="targetclose();">キャンセル</a>
 </div>
 
